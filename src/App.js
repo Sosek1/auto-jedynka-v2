@@ -1,6 +1,6 @@
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import { Homepage } from "./pages/Homepage";
+import Homepage from "./pages/Homepage";
 
 function App() {
   return (

@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 
-import { TopBar } from "../Components/TopBar";
-import { Menu } from "../Components/Menu";
-import { Banner } from "../Components/Banner";
-import { CopyNotification } from "../UI/CopyNotification";
-export const Homepage = (props) => {
+import TopBar from "../Components/TopBar";
+import Menu from "../Components/Menu";
+import Banner from "../Components/homepage/Banner";
+import Features from "../Components/homepage/Features";
+import CopyNotification from "../UI/CopyNotification";
+import Statistics from "../Components/homepage/Statistics";
+import OfferCard from "../Components/OfferCard";
+
+const Homepage = (props) => {
   const [copyNotification, setCopyNotification] = useState(false);
 
   const copyNotificationHandler = () => {
@@ -24,6 +28,36 @@ export const Homepage = (props) => {
       </header>
       {copyNotification && <CopyNotification />}
       <Banner />
+      <h2 className="section-title">
+        Cechy naszych <span className="text-orange">kursów</span>
+      </h2>
+      <Features />
+      <h2 className="section-title">
+        O <span className="text-orange">nas</span>
+      </h2>
+      <p className="w-[90%] md:w-[50%] customMargin text-center text-gray text-[18px] md:text-[20px]">
+        Na przestrzeni lat udało nam się wyszkolić wielu kierowców. OSK Jedynka
+        może pochwalić się wysoką zdawalnością egzaminów praktycznych jak i
+        teoretycznych, za pierwszym razem. Uczestnicy naszych kursów mogą
+        potwierdzić, że
+        <span className="text-orange"> po nas nikt nie musi douczać.</span>
+      </p>
+      <h2 className="section-title">
+        Jedynka w <span className="text-orange">liczbach</span>
+      </h2>
+      <Statistics />
+      <h2 className="section-title">
+        Oferta <span className="text-orange">kursów</span>
+      </h2>
+
+      <section className="min-h-[100vh] md:w-[80%] md:min-h-[50vh] md:customMargin flex flex-col lg:flex-row items-center lg:justify-around gap-[50px] lg:gap-0">
+        <OfferCard courseType={"weekendCourse"} />
+        <OfferCard courseType={"expressCourse"} />
+      </section>
     </>
   );
 };
+
+export default Homepage;
+
+//Shall I delete slider with fake opinions?

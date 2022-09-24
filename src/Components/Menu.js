@@ -5,12 +5,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import logo from "../UI/images/logo.png";
 
-export const Menu = () => {
+const Menu = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const showMenuHandler = () => {
     setShowMobileMenu(!showMobileMenu);
   };
+
+  const menuData = [
+    ["Strona główna", "/strona-główna"],
+    ["Oferta", "/oferta"],
+    ["FAQ", "faq"],
+    ["Dekalog Ekokierowcy", "/dekalog-ekokierowcy"],
+    ["Galeria", "/galeria"],
+    ["Kontakt", "/kontakt"],
+  ];
 
   return (
     <nav className="h-[80px] md:h-[90px] lg:h-[10vh] flex justify-between bg-white">
@@ -24,15 +33,8 @@ export const Menu = () => {
             : "hidden"
         } lg:h-[100%] lg:mr-[20px] lg:flex`}
       >
-        {[
-          ["Strona główna", "/strona-główna"],
-          ["Oferta", "/oferta"],
-          ["FAQ", "faq"],
-          ["Dekalog Ekokierowcy", "/dekalog-ekokierowcy"],
-          ["Galeria", "/galeria"],
-          ["Kontakt", "/kontakt"],
-        ].map(([title, url]) => (
-          <li key={title}>
+        {menuData.map(([title, url]) => (
+          <li key={Math.floor(Math.random() * 10000)}>
             <NavLink
               to={url}
               className="p-[5px] text-[20px] text-white lg:text-[16px] lg:text-gray hover:text-orange transition ease-in-out duration-300"
@@ -60,6 +62,8 @@ export const Menu = () => {
     </nav>
   );
 };
+
+export default Menu;
 
 //Check if hover doesnt look bad on mobile
 //Check if menu icon isnt to small on tablets(md)

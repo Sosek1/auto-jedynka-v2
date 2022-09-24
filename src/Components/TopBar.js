@@ -4,7 +4,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 
-export const TopBar = (props) => {
+const TopBar = (props) => {
   return (
     <section className="h-[5vh] hidden lg:flex justify-between items-center bg-orange">
       <div className="width-[40%] ml-[20px] flex">
@@ -30,3 +30,5 @@ export const TopBar = (props) => {
     </section>
   );
 };
+
+export default TopBar;
