@@ -36,12 +36,12 @@ const Features = () => {
       ))}
 
       {featuresData.map(([feature, customClass]) => (
-        <h3
+        <p
           key={Math.floor(Math.random() * 10000)}
           className={`${customClass} text-[18px] md:text-[20px] text-center`}
         >
           {feature}
-        </h3>
+        </p>
       ))}
     </section>
   );

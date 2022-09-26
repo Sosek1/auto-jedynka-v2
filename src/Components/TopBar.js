@@ -15,9 +15,12 @@ const TopBar = (props) => {
       </div>
       <div className="mr-[20px] flex">
         <PhoneIcon style={{ color: "#ffffff" }} />
-        <h3 className="ml-[10px] mr-[20px] text-white text-[15px] font-light">
+        <a
+          href="tel:+503665669"
+          className="ml-[10px] mr-[20px] text-white text-[15px] font-light"
+        >
           503 665 669
-        </h3>
+        </a>
         <EmailIcon style={{ color: "#ffffff" }} />
         <CopyToClipboard
           text="autojedynka@gmail.com"

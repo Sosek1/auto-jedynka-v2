@@ -15,7 +15,7 @@ const Menu = () => {
   const menuData = [
     ["Strona główna", "/strona-główna"],
     ["Oferta", "/oferta"],
-    ["FAQ", "faq"],
+    ["FAQ", "/faq"],
     ["Dekalog Ekokierowcy", "/dekalog-ekokierowcy"],
     ["Galeria", "/galeria"],
     ["Kontakt", "/kontakt"],

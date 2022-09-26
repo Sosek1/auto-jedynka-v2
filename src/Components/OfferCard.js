@@ -34,20 +34,20 @@ const OfferCard = (props) => {
       <h3 className="h-[10%] flex items-center justify-center text-[20px]">
         {offerData[props.courseType].name}
       </h3>
-      <h3 className="w-[100%] h-[10%] mb-[20px] flex items-center justify-center text-white text-[20px] font-light bg-orange">
+      <p className="w-[100%] h-[10%] mb-[20px] flex items-center justify-center text-white text-[20px] font-light bg-orange">
         {offerData[props.courseType].price}
-      </h3>
+      </p>
       <ul className="w-[100%] h-[70%] flex flex-col items-center justify-between ">
         {offerData[props.courseType].properties.map((text) => (
           <li
             key={Math.floor(Math.random() * 10000)}
-            className="text-[16px] text-center"
+            className="text-[16px] md:text-[18px] text-center"
           >
             {text}
           </li>
         ))}
       </ul>
-      <button className="w-[100%] h-[10%] mt-[20px] text-white text-[16px] bg-black">
+      <button className="w-[100%] h-[10%] mt-[20px] text-white text-[18px] md:text-[20px] bg-black">
         Więcej
       </button>
     </div>

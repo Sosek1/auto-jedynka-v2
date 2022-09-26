@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import useNotification from "../custom-hooks/use-notification";
 
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
@@ -7,23 +7,16 @@ import Features from "../Components/homepage/Features";
 import CopyNotification from "../UI/CopyNotification";
 import Statistics from "../Components/homepage/Statistics";
 import OfferCard from "../Components/OfferCard";
+import Faq from "../Components/homepage/Faq";
+import Footer from "../Components/Footer";
 
 const Homepage = (props) => {
-  const [copyNotification, setCopyNotification] = useState(false);
+  const { copyNotification, onCopy } = useNotification();
 
-  const copyNotificationHandler = () => {
-    setCopyNotification(true);
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setCopyNotification(false);
-    }, 1000);
-  }, [copyNotification]);
   return (
     <>
       <header>
-        <TopBar copy={copyNotificationHandler} />
+        <TopBar copy={onCopy} />
         <Menu />
       </header>
       {copyNotification && <CopyNotification />}
@@ -54,6 +47,11 @@ const Homepage = (props) => {
         <OfferCard courseType={"weekendCourse"} />
         <OfferCard courseType={"expressCourse"} />
       </section>
+      <h2 className="section-title">
+        Często zadawane <span className="text-orange">pytania</span>
+      </h2>
+      <Faq />
+      <Footer copy={onCopy} />
     </>
   );
 };
