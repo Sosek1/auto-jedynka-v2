@@ -14,7 +14,7 @@ const FAQ = () => {
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      {copyNotification && <CopyNotification />}
+      <CopyNotification onShow={copyNotification} />
       <h1 className="section-title">
         Często zadawane <span className="text-orange">pytania</span>
       </h1>

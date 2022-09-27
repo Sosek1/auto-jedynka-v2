@@ -24,7 +24,7 @@ const Contact = (props) => {
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      {copyNotification && <CopyNotification />}
+      <CopyNotification onShow={copyNotification} />
       <h2 className="section-title">
         <span className="text-orange">Skontaktuj</span> się z nami
       </h2>

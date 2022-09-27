@@ -1,3 +1,6 @@
+import AnimationComponent from "../../UI/AnimationComponent";
+import { scaleVariant } from "../../UI/animationVariants";
+
 import SchoolIcon from "@mui/icons-material/School";
 import SecurityIcon from "@mui/icons-material/Security";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -27,12 +30,13 @@ const Features = () => {
   return (
     <section className="grid grid-cols-[1fr] md:grid-cols-2 xl:grid-cols-4 grid-rows-8 md:grid-rows-4 xl:grid-rows-2 justify-items-center items-center gap-y-[20px] md:gap-y-[10px] 2xl:gap-y-[0px]">
       {featuresIcons.map((icon) => (
-        <div
+        <AnimationComponent
+          class="w-[80px] h-[80px] flex items-center justify-center border-[1px] border-orange rounded-full"
           key={Math.floor(Math.random() * 10000)}
-          className="w-[80px] h-[80px] flex items-center justify-center border-[1px] border-orange rounded-full"
+          variant={scaleVariant}
         >
           {icon}
-        </div>
+        </AnimationComponent>
       ))}
 
       {featuresData.map(([feature, customClass]) => (

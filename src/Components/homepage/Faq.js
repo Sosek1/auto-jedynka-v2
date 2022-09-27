@@ -1,3 +1,6 @@
+import AnimationComponent from "../../UI/AnimationComponent";
+import { scaleVariant } from "../../UI/animationVariants";
+
 const Faq = () => {
   const questions = [
     "Co jest potrzebne do rozpoczęcia kursu prawa jazdy?",
@@ -11,12 +14,14 @@ const Faq = () => {
     <section className="flex flex-col items-center">
       <ul className="flex flex-col justify-around gap-[30px]">
         {questions.map((question) => (
-          <li
+          <AnimationComponent
+            variant={scaleVariant}
             key={Math.floor(Math.random() * 10000)}
-            className="w-[90%] h-[20%] customMargin text-center text-[18px] md:text-[20px] color-black"
           >
-            {question}
-          </li>
+            <li className="w-[90%] h-[20%] customMargin text-center text-[18px] md:text-[20px] color-black">
+              {question}
+            </li>
+          </AnimationComponent>
         ))}
       </ul>
       <button className="w-[170px] h-[50px] md:w-[200px] md:h-[50px] mt-[30px] text-[16px] md:text-[20px] text-center text-white font-light bg-orange z-10">

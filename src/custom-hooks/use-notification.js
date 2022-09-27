@@ -8,7 +8,7 @@ const useNotification = () => {
   useEffect(() => {
     setTimeout(() => {
       setCopyNotification(false);
-    }, 1000);
+    }, 3000);
   }, [copyNotification]);
 
   return { copyNotification, onCopy: copyNotificationHandler };

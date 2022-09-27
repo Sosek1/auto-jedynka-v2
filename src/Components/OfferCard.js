@@ -1,4 +1,4 @@
-import React from "react";
+import AnimationComponent from "../UI/AnimationComponent";
 
 const OfferCard = (props) => {
   const offerData = {
@@ -30,7 +30,10 @@ const OfferCard = (props) => {
   };
 
   return (
-    <div className="h-[450px] w-[75%] md:w-[55%] lg:w-[35%] 2xl:w-[25%] flex flex-col items-center border-t-2 border-orange bg-white customBoxShadow hover:customBoxShadowOnHover ease-in-out duration-200 cursor-pointer">
+    <AnimationComponent
+      variant={props.animationVariant}
+      class="h-[450px] w-[75%] md:w-[55%] lg:w-[40%] 2xl:w-[30%] flex flex-col items-center border-t-2 border-orange bg-white customBoxShadow hover:customBoxShadowOnHover ease-in-out duration-200 cursor-pointer"
+    >
       <h3 className="h-[10%] flex items-center justify-center text-[20px]">
         {offerData[props.courseType].name}
       </h3>
@@ -50,7 +53,7 @@ const OfferCard = (props) => {
       <button className="w-[100%] h-[10%] mt-[20px] text-white text-[18px] md:text-[20px] bg-black">
         Więcej
       </button>
-    </div>
+    </AnimationComponent>
   );
 };
 

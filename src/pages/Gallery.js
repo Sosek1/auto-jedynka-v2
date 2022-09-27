@@ -1,4 +1,6 @@
 import useNotification from "../custom-hooks/use-notification";
+import AnimationComponent from "../UI/AnimationComponent";
+import { fadeVariant } from "../UI/animationVariants";
 
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
@@ -19,16 +21,16 @@ const Gallery = () => {
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      {copyNotification && <CopyNotification />}
+      <CopyNotification onShow={copyNotification} />
       <h2 className="section-title text-orange">Galeria</h2>
       <section className="w-[80vw] lg:w-[90vw] customMargin grid grid-rows-4 grid-cols-1 lg:grid-rows-2 lg:grid-cols-2 gap-[10px]">
         {images.map((image) => (
-          <img
+          <AnimationComponent
+            variant={fadeVariant}
             key={Math.floor(Math.random() * 10000)}
-            src={image}
-            alt={"car"}
-            className="w-[100%] h-[100%]"
-          />
+          >
+            <img src={image} alt={"car"} className="w-[100%] h-[100%]" />
+          </AnimationComponent>
         ))}
       </section>
       <Footer copy={onCopy} />

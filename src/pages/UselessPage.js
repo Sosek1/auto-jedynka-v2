@@ -13,7 +13,7 @@ const UselessPage = () => {
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      {copyNotification && <CopyNotification />}
+      <CopyNotification onShow={copyNotification} />
       <h1 className="section-title">
         Dekalog <span className="text-orange">EkoKierowcy</span>
       </h1>
