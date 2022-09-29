@@ -6,6 +6,9 @@ import FAQ from "./pages/FAQ";
 import UselessPage from "./pages/UselessPage";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import News from "./pages/News";
+import AdminPanel from "./pages/AdminPanel";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         <Route path="/oferta">
           <Offer />
         </Route>
+        <Route path="/aktualności">
+          <News />
+        </Route>
         <Route path="/faq">
           <FAQ />
         </Route>
@@ -29,8 +35,14 @@ function App() {
         <Route path="/galeria">
           <Gallery />
         </Route>
-        <Route>
-          <Contact path="/kontakt" />
+        <Route path="/admin-panel">
+          <AdminPanel />
+        </Route>
+        <Route path="/kontakt">
+          <Contact />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </>
