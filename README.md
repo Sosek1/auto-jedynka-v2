@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Driving School's website written in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# https://auto-jedynka.pl/
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+I created this website over year ago and now I've remade it so the admin(owner of driving school) can upload photos and messages to his students as well as website's visitors.  
+The first version of this page was wirtten in HTML, SCSS, JavaScript and copy-pasted PHP and wasn't reactive at all (except contact form whitch as I said before was copy-pasted).  
+My update provided kind of CMS for my client, written from scratch. This project shows my progress from HTML and CSS to JavaScript and React.  
+I'm even more glad I managed to make this progress considering that I had High School final exams this year and started to learn React in June.
 
-### `npm start`
+### Website functions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 7 pages displaying informations about driving school
+- Logging system with authentication (not done yet)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Admin Panel functions
 
-### `npm test`
+- Uploading posts
+- Uploading photos
+- Updating courses' prices
+- Editing and deleting posts (not done yet)
+- Deleting photos (not done yet)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Used technologies
 
-### `npm run build`
+- React JS
+  - React Hooks: useState, useEffect, useContext, useRef, useCallback
+  - React Router
+  - Custom Hooks
+- Tailwind CSS
+- Material UI Icons
+- Firebase realtime database and storage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# App is designed using Figma (first version's design - there are some changes)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- https://www.figma.com/file/Ri8n5u3xxifjsaGxcdEmsG/Untitled?node-id=0%3A1
