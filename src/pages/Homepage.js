@@ -8,14 +8,14 @@ import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
 import Banner from "../Components/homepage/Banner";
 import Features from "../Components/homepage/Features";
-import CopyNotification from "../UI/CopyNotification";
+import Notification from "../UI/Notification";
 import Statistics from "../Components/homepage/Statistics";
 import OfferCard from "../Components/OfferCard";
 import Faq from "../Components/homepage/Faq";
 import Footer from "../Components/Footer";
 
 const Homepage = (props) => {
-  const { copyNotification, onCopy } = useNotification();
+  const { notification: copyNotification, onNoti: onCopy } = useNotification();
 
   return (
     <>
@@ -23,7 +23,7 @@ const Homepage = (props) => {
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      <CopyNotification onShow={copyNotification} />
+      <Notification onShow={copyNotification} text={"Skopiowano do schowka"} />
       <Banner />
       <h2 className="section-title">
         Cechy naszych <span className="text-orange">kursów</span>
@@ -70,5 +70,3 @@ const Homepage = (props) => {
 };
 
 export default Homepage;
-
-//Shall I delete slider with fake opinions?

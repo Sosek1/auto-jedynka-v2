@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import AnimationComponent from "../../UI/AnimationComponent";
 import { scaleVariant } from "../../UI/animationVariants";
 
@@ -11,7 +13,7 @@ const Faq = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center">
+    <section className="mb-[50px] flex flex-col items-center">
       <ul className="flex flex-col justify-around gap-[30px]">
         {questions.map((question) => (
           <AnimationComponent
@@ -24,9 +26,11 @@ const Faq = () => {
           </AnimationComponent>
         ))}
       </ul>
-      <button className="w-[170px] h-[50px] md:w-[200px] md:h-[50px] mt-[30px] text-[16px] md:text-[20px] text-center text-white font-light bg-orange z-10">
-        Poznaj odpowiedzi
-      </button>
+      <Link to="/faq">
+        <button className="w-[170px] h-[50px] md:w-[200px] md:h-[50px] mt-[30px] text-[16px] md:text-[20px] text-center text-white font-light bg-orange cursor-pointer z-10">
+          Poznaj odpowiedzi
+        </button>
+      </Link>
     </section>
   );
 };

@@ -2,22 +2,22 @@ import useNotification from "../custom-hooks/use-notification";
 
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
-import CopyNotification from "../UI/CopyNotification";
+import Notification from "../UI/Notification";
 import Post from "../Components/news/Post";
 import Footer from "../Components/Footer";
 import PostsList from "../Components/news/PostsList";
 
 const News = () => {
-  const { copyNotification, onCopy } = useNotification();
+  const { notification: copyNotification, onNoti: onCopy } = useNotification();
   return (
     <>
       <header>
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      <CopyNotification onShow={copyNotification} />
+      <Notification onShow={copyNotification} text={"Skopiowano do schowka"} />
       <h2 className="section-title text-orange">Aktualności</h2>
-      {/* <PostsList /> */}
+      <PostsList />
       <Footer copy={onCopy} />
     </>
   );

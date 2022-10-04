@@ -15,7 +15,7 @@ const Footer = (props) => {
   ];
 
   return (
-    <footer className="mt-[50px] flex md:grid grid-cols-[2fr,1.5fr,1fr] md:grid-cols-[1.5fr,1.5fr,1fr] grid-rows-[4fr,1fr] flex-col bg-gray">
+    <footer className="flex md:grid grid-cols-[2fr,1.5fr,1fr] md:grid-cols-[1.5fr,1.5fr,1fr] grid-rows-[4fr,1fr] flex-col bg-gray">
       <section className="mt-[20px] md:ml-[20px] lg:ml-[40px] hidden md:flex flex-col items-start">
         <h2 className="font-light text-[25px] text-white border-b-[2px] border-orange">
           Auto Jedynka

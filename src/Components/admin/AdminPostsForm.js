@@ -2,7 +2,7 @@ import { useRef } from "react";
 import useHttp from "../../custom-hooks/use-http";
 import { addPosts } from "../../lib/api";
 
-const AdminPosts = () => {
+const AdminPosts = (props) => {
   const { sendRequest } = useHttp(addPosts);
 
   const titleRef = useRef();
@@ -32,7 +32,7 @@ const AdminPosts = () => {
   return (
     <form
       onSubmit={submitFormHandler}
-      className="w-[90vw] xl:w-[80vw] 2xl:w-[60vw] customMargin flex flex-col "
+      className="w-[90vw] xl:w-[80vw] 2xl:w-[60vw] customMargin flex flex-col"
     >
       <div className="h-[100%] w-[100%] p-[20px] flex flex-col  gap-5 customBoxShadow rounded">
         <label className="text-[18px] md:text-[20px]">Tytuł</label>
@@ -49,6 +49,10 @@ const AdminPosts = () => {
         ></textarea>
       </div>
       <button
+        onClick={() => {
+          props.noti();
+          props.text();
+        }}
         type="submit"
         className="w-[150px] h-[40px] mt-[20px] text-[16px] md:text-[18px] text-white bg-orange rounded"
       >

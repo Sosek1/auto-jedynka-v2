@@ -1,10 +1,11 @@
+import { useRef, useState, useEffect } from "react";
 import useNotification from "../custom-hooks/use-notification";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import Map, { Marker } from "react-map-gl";
+import mapboxgl from "mapbox-gl";
 
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
-import CopyNotification from "../UI/CopyNotification";
+import Notification from "../UI/Notification";
 import Footer from "../Components/Footer";
 
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -13,18 +14,38 @@ import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
 
 const Contact = (props) => {
-  const { copyNotification, onCopy } = useNotification();
-  const coordinates = {
-    lng: 20.04974582883778,
-    lat: 50.02053084796161,
-  };
+  const { notification: copyNotification, onNoti: onCopy } = useNotification();
+
+  mapboxgl.accessToken =
+    "pk.eyJ1Ijoic29zZWsiLCJhIjoiY2w4aXdpbGdtMHV3bTN4bXJiNWx6bG1qdCJ9.49nkCyCNes841N45b4y9LQ";
+
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [lng, setLng] = useState(20.04974582883778);
+  const [lat, setLat] = useState(50.02053084796161);
+  const [zoom, setZoom] = useState(13);
+
+  useEffect(() => {
+    if (map.current) return; // initialize map only once
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: "mapbox://styles/mapbox/streets-v11",
+      attributionControl: false,
+      center: [lng, lat],
+      zoom: zoom,
+    });
+    const marker1 = new mapboxgl.Marker()
+      .setLngLat([20.04974582883778, 50.02053084796161])
+      .addTo(map.current);
+  });
+
   return (
     <>
       <header>
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      <CopyNotification onShow={copyNotification} />
+      <Notification onShow={copyNotification} text={"Skopiowano do schowka"} />
       <h2 className="section-title">
         <span className="text-orange">Skontaktuj</span> się z nami
       </h2>
@@ -80,21 +101,8 @@ const Contact = (props) => {
           </p>
         </div>
       </section>
-      <div className="h-[30vh] mt-[50px]">
-        <Map
-          mapboxAccessToken="pk.eyJ1Ijoic29zZWsiLCJhIjoiY2w4aXdpbGdtMHV3bTN4bXJiNWx6bG1qdCJ9.49nkCyCNes841N45b4y9LQ"
-          initialViewState={{
-            longitude: 20.04974582883778,
-            latitude: 50.02053084796161,
-            zoom: 13,
-          }}
-          mapStyle="mapbox://styles/mapbox/streets-v11"
-        >
-          <Marker
-            longitude={coordinates.lng}
-            latitude={coordinates.lat}
-          ></Marker>
-        </Map>
+      <div className="h-[30vh] mt-[50px] overflow-x-hidden">
+        <div ref={mapContainer} className="h-[100%]  "></div>
       </div>
       <Footer copy={onCopy} />
     </>

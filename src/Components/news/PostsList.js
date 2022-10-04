@@ -3,27 +3,28 @@ import useHttp from "../../custom-hooks/use-http";
 import { getPosts } from "../../lib/api";
 
 import Post from "./Post";
+import LoadingSpinner from "../../UI/LoadingSpinner";
 
 const PostsList = () => {
-  const { sendRequest, data } = useHttp(getPosts);
+  const { sendRequest, data, status, error } = useHttp(getPosts);
 
   useEffect(() => {
     sendRequest();
+    console.log(data, status, error);
   }, [sendRequest]);
 
-  console.log(data);
-
   return (
-    <ul>
-      {data.map((post) => (
-        <Post
-          key={post.id}
-          id={post.id}
-          title={post.title}
-          text={post.text}
-          date={post.date}
-        />
-      ))}
+    <ul className="w-[80vw] md:w-[60vw] min-h-[30vh] lg:w-[50vw] customMargin mb-[50px] flex flex-col items-center gap-10">
+      {status === (null || "pending") && <LoadingSpinner />}
+      {status === "completed" &&
+        data.map((post) => (
+          <Post
+            key={post.id}
+            date={post.date}
+            title={post.title}
+            text={post.text}
+          />
+        ))}
     </ul>
   );
 };

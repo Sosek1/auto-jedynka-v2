@@ -2,22 +2,22 @@ import useNotification from "../custom-hooks/use-notification";
 
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
-import CopyNotification from "../UI/CopyNotification";
+import Notification from "../UI/Notification";
 import Footer from "../Components/Footer";
 
 const UselessPage = () => {
-  const { copyNotification, onCopy } = useNotification();
+  const { notification: copyNotification, onNoti: onCopy } = useNotification();
   return (
     <>
       <header>
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      <CopyNotification onShow={copyNotification} />
+      <Notification onShow={copyNotification} text={"Skopiowano do schowka"} />
       <h1 className="section-title">
         Dekalog <span className="text-orange">EkoKierowcy</span>
       </h1>
-      <section className="w-[90vw] lg:w-[70vw] customMargin">
+      <section className="w-[90vw] lg:w-[70vw] mb-50[px] customMargin md:mb-[50px]">
         <h2 className="mb-[20px] text-[25px] md:text-[30px]  font-medium">
           Bądź świadomym ekokierowcą
         </h2>

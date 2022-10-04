@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 
 const useNotification = () => {
-  const [copyNotification, setCopyNotification] = useState(false);
-  const copyNotificationHandler = () => {
-    setCopyNotification(true);
+  const [notification, setNotification] = useState(false);
+  const notificationHandler = () => {
+    setNotification(true);
   };
   useEffect(() => {
     setTimeout(() => {
-      setCopyNotification(false);
+      setNotification(false);
     }, 3000);
-  }, [copyNotification]);
+  }, [notification]);
 
-  return { copyNotification, onCopy: copyNotificationHandler };
+  return { notification, onNoti: notificationHandler };
 };
 
 export default useNotification;

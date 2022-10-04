@@ -7,7 +7,7 @@ import { slideBottomVariant } from "../UI/animationVariants";
 
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
-import CopyNotification from "../UI/CopyNotification";
+import Notification from "../UI/Notification";
 import OfferCard from "../Components/OfferCard";
 import Footer from "../Components/Footer";
 import PersonAddAltRoundedIcon from "@mui/icons-material/PersonAddAltRounded";
@@ -17,7 +17,7 @@ import TimeToLeaveRoundedIcon from "@mui/icons-material/TimeToLeaveRounded";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 
 const Offer = () => {
-  const { copyNotification, onCopy } = useNotification();
+  const { notification: copyNotification, onNoti: onCopy } = useNotification();
 
   const icons = [
     [
@@ -66,7 +66,7 @@ const Offer = () => {
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      <CopyNotification onShow={copyNotification} />
+      <Notification onShow={copyNotification} text={"Skopiowano do schowka"} />
       <h2 className="section-title">
         Oferujemy kursy prawa jazdy
         <span className="text-orange">
@@ -127,7 +127,7 @@ const Offer = () => {
         Cennik
         <span className="text-orange"> kursów</span>
       </h2>
-      <section className="min-h-[100vh] md:w-[80%] md:min-h-[50vh] md:customMargin flex flex-col lg:flex-row items-center lg:justify-around gap-[50px] lg:gap-0">
+      <section className="min-h-[100vh] md:w-[80%] md:min-h-[50vh] overflow-x-hidden mb-[50px] md:customMargin md:mb-[50px] flex flex-col lg:flex-row items-center lg:justify-around gap-[50px] lg:gap-0">
         <OfferCard
           courseType={"weekendCourse"}
           animationVariant={slideLeftVariant}

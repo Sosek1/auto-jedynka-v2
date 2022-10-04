@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -12,6 +12,14 @@ const Menu = () => {
     setShowMobileMenu(!showMobileMenu);
   };
 
+  useEffect(() => {
+    if (showMobileMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [showMobileMenu]);
+
   const menuData = [
     ["Strona główna", "/strona-główna"],
     ["Oferta", "/oferta"],
@@ -23,16 +31,16 @@ const Menu = () => {
   ];
 
   return (
-    <nav className="h-[80px] md:h-[90px] lg:h-[10vh] flex justify-between bg-white">
-      <div className="h-[100%] ml-[20px] flex items-center justify-center z-30">
+    <nav
+      className={`h-[80px] lg:h-[100px] max-w-[100vw] md:h-[90px] lg:h-[10vh] relative lg:static lg:flex justify-between bg-white`}
+    >
+      <div className="h-[100%] top-[50%] translate-y-[-50%] lg:translate-y-0 left-0 absolute lg:static lg:ml-[20px] flex items-center justify-center z-30">
         <img src={logo} className="h-[80px] lg:h-[100px]" />
       </div>
       <ul
-        className={`items-center gap-[20px] ${
-          showMobileMenu
-            ? "h-[100vh] fixed top-0 right-0 bottom-0 left-0 flex flex-col justify-center bg-orange z-20"
-            : "hidden"
-        } lg:h-[100%] lg:mr-[20px] lg:flex`}
+        className={`h-[100vh] lg:h-[100%] w-[100%] fixed left-[100%] lg:overflow-x-hidden lg:mr-[20px] lg:static flex flex-col lg:flex-row justify-center lg:justify-end items-center gap-[20px] transition-all duration-500 ease-out bg-orange lg:bg-white z-20 ${
+          showMobileMenu ? "left-[0%] scroll-no " : ""
+        }`}
       >
         {menuData.map(([title, url]) => (
           <li key={Math.floor(Math.random() * 10000)}>
@@ -46,7 +54,7 @@ const Menu = () => {
           </li>
         ))}
       </ul>
-      <div className="h-[100%] mr-[20px] flex items-center justify-center lg:hidden z-30">
+      <div className="h-[100%] absolute right-0 mr-[20px] flex items-center justify-center lg:hidden z-30">
         {!showMobileMenu && (
           <MenuIcon
             onClick={showMenuHandler}

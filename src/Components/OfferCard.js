@@ -1,10 +1,21 @@
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import useHttp from "../custom-hooks/use-http";
+import { getCoursePrices } from "../lib/api";
+
 import AnimationComponent from "../UI/AnimationComponent";
 
 const OfferCard = (props) => {
+  const { sendRequest, data, status } = useHttp(getCoursePrices);
+
+  useEffect(() => {
+    sendRequest();
+  }, [sendRequest]);
+
   const offerData = {
     weekendCourse: {
       name: "Weekendowy",
-      price: "2500 zł",
+      price: `${status === "completed" ? data.weekendCourse : ""}`,
       properties: [
         "Wykłady teoretyczne",
         "Jazdy na placu manewrowym",
@@ -16,7 +27,7 @@ const OfferCard = (props) => {
     },
     expressCourse: {
       name: "Ekspresowy",
-      price: "2900 zł",
+      price: `${status === "completed" ? data.expressCourse : ""}`,
       properties: [
         "Wszystkie wykłady i jazdy w 18 dni",
         "Wykłady teoretyczne",
@@ -50,9 +61,11 @@ const OfferCard = (props) => {
           </li>
         ))}
       </ul>
-      <button className="w-[100%] h-[10%] mt-[20px] text-white text-[18px] md:text-[20px] bg-black">
-        Więcej
-      </button>
+      <Link to="/oferta" className="w-[100%] h-[10%] mt-[20px]">
+        <button className="w-[100%] h-[100%]  text-white text-[18px] md:text-[20px] bg-black">
+          Więcej
+        </button>
+      </Link>
     </AnimationComponent>
   );
 };

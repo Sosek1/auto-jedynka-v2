@@ -1,37 +1,56 @@
+import { useEffect, useState } from "react";
+import { storage } from "../firebase";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
 import useNotification from "../custom-hooks/use-notification";
 import AnimationComponent from "../UI/AnimationComponent";
 import { fadeVariant } from "../UI/animationVariants";
 
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
-import CopyNotification from "../UI/CopyNotification";
+import Notification from "../UI/Notification";
 import Footer from "../Components/Footer";
-
-import image1 from "../UI/images/gallery1.jpg";
-import image2 from "../UI/images/gallery2.jpg";
-import image3 from "../UI/images/gallery3.jpg";
-import image4 from "../UI/images/gallery4.jpg";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const Gallery = () => {
-  const { copyNotification, onCopy } = useNotification();
-  const images = [image1, image2, image3, image4];
+  const { notification: copyNotification, onNoti: onCopy } = useNotification();
+  const [imagesList, setImagesList] = useState([]);
+
+  const imagesListRef = ref(storage, "Gallery/");
+
+  useEffect(() => {
+    listAll(imagesListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImagesList((prev) => [url, ...prev]);
+        });
+      });
+    });
+    console.log(imagesList);
+  }, []);
+
   return (
     <>
       <header>
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      <CopyNotification onShow={copyNotification} />
+      <Notification onShow={copyNotification} text={"Skopiowano do schowka"} />
       <h2 className="section-title text-orange">Galeria</h2>
-      <section className="w-[80vw] lg:w-[90vw] customMargin grid grid-rows-4 grid-cols-1 lg:grid-rows-2 lg:grid-cols-2 gap-[10px]">
-        {images.map((image) => (
-          <AnimationComponent
-            variant={fadeVariant}
-            key={Math.floor(Math.random() * 10000)}
-          >
-            <img src={image} alt={"car"} className="w-[100%] h-[100%]" />
-          </AnimationComponent>
-        ))}
+      <section className="w-[80vw] min-h-[30vh] lg:w-[90vw] mb-[50px] customMargin md:mb-[50px] grid grid-rows-4 grid-cols-1 lg:grid-rows-2 lg:grid-cols-2 gap-[10px]">
+        {imagesList.length !== 0 ? (
+          imagesList.map((url) => (
+            <AnimationComponent
+              variant={fadeVariant}
+              key={Math.floor(Math.random() * 10000)}
+            >
+              <img src={url} alt={"car image"} className="w-[100%] h-[100%]" />
+            </AnimationComponent>
+          ))
+        ) : (
+          <div className="w-[100%] flex items-center justify-center">
+            <LoadingSpinner />
+          </div>
+        )}
       </section>
       <Footer copy={onCopy} />
     </>

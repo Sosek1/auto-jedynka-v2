@@ -2,11 +2,11 @@ import useNotification from "../custom-hooks/use-notification";
 
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
-import CopyNotification from "../UI/CopyNotification";
+import Notification from "../UI/Notification";
 import Footer from "../Components/Footer";
 
 const FAQ = () => {
-  const { copyNotification, onCopy } = useNotification();
+  const { notification: copyNotification, onNoti: onCopy } = useNotification();
 
   return (
     <>
@@ -14,11 +14,11 @@ const FAQ = () => {
         <TopBar copy={onCopy} />
         <Menu />
       </header>
-      <CopyNotification onShow={copyNotification} />
+      <Notification onShow={copyNotification} text={"Skopiowano do schowka"} />
       <h1 className="section-title">
         Często zadawane <span className="text-orange">pytania</span>
       </h1>
-      <section className="w-[90vw] lg:w-[70vw] customMargin">
+      <section className="w-[90vw] lg:w-[70vw] mb-[50px] customMargin md:mb-[50px]">
         <h3 className="mb-[10px] text-[25px] md:text-[30px] ">
           1. Co jest potrzebne do rozpoczęcia kursu jazdy ?
         </h3>

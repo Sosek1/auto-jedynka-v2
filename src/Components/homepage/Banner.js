@@ -10,7 +10,7 @@ const Banner = () => {
           Krakowie
         </h2>
       </div>
-      <button className="w-[170px] h-[50px] md:w-[200px] md:h-[50px] absolute left-[50%] bottom-[50px]  md:bottom-[30px] translate-x-[-50%] text-[16px] md:text-[20px] text-white font-light bg-orange z-10">
+      <button className="w-[170px] h-[50px] md:w-[200px] md:h-[50px] absolute left-[50%] bottom-[50px]  md:bottom-[30px] translate-x-[-50%] text-[16px] md:text-[20px] text-white font-light bg-orange border-2 border-orange hover:border-white ease-in-out duration-200 cursor-pointer z-10">
         Zapisz się na kurs
       </button>
     </section>
