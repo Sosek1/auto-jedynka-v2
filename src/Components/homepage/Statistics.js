@@ -13,7 +13,7 @@ const Statistics = () => {
   ];
 
   return (
-    <section className="h-[80vh] md:h-[300px] flex flex-col md:grid grid-cols-3 grid-rows-3 items-center justify-between md:justify-items-center relative bg-[url('https://firebasestorage.googleapis.com/v0/b/autojedynka-73a74.appspot.com/o/taxi-1209542_1920.jpg?alt=media&token=dba768c7-593c-4a6a-b179-0268ec753a70')] bg-no-repeat bg-cover bg-center">
+    <section className="min-h-[80vh] md:min-h-[300px] lg:h-[40vh] flex flex-col md:grid grid-cols-3 grid-rows-3 items-center justify-between md:justify-items-center relative bg-[url('https://firebasestorage.googleapis.com/v0/b/autojedynka-73a74.appspot.com/o/taxi-1209542_1920.jpg?alt=media&token=dba768c7-593c-4a6a-b179-0268ec753a70')] bg-no-repeat bg-cover bg-center">
       <div className="absolute top-0 right-0 bottom-0 left-0 bg-black opacity-60"></div>
       {statisticsData.map(([class1, text, class2]) => (
         <p

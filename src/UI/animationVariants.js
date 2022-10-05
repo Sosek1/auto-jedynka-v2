@@ -14,10 +14,10 @@ export const slideBottomVariant = {
 };
 
 export const slideRightVariant = {
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.3 } },
-  hidden: { opacity: 0, x: "50%" },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3, delay: 0.3 } },
+  hidden: { opacity: 0, x: "30%" },
 };
 export const slideLeftVariant = {
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-  hidden: { opacity: 0, x: "-50%" },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  hidden: { opacity: 0, x: "-30%" },
 };

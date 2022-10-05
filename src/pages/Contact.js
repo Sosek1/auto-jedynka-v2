@@ -34,9 +34,6 @@ const Contact = (props) => {
       center: [lng, lat],
       zoom: zoom,
     });
-    const marker1 = new mapboxgl.Marker()
-      .setLngLat([20.04974582883778, 50.02053084796161])
-      .addTo(map.current);
   });
 
   return (
