@@ -15,9 +15,9 @@ function App() {
     <>
       <Switch>
         <Route path="/" exact>
-          <Redirect to="strona-główna" />
+          <Redirect to="/strona-główna" />
         </Route>
-        <Route path="/strona-główna">
+        <Route path="/strona-główna" exact>
           <Homepage />
         </Route>
         <Route path="/oferta">
