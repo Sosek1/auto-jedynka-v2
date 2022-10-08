@@ -12,7 +12,7 @@ const Footer = (props) => {
     ["Dekalog Ekokierowcy", "/dekalog-ekokierowcy"],
     ["Galeria", "/galeria"],
     ["Kontakt", "/kontakt"],
-    ["Admin", "/admin"],
+    ["Admin", "/admin-panel"],
   ];
 
   return (
