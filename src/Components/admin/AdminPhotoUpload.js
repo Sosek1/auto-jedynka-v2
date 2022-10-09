@@ -19,7 +19,7 @@ const AdminPhotoUpload = (props) => {
 
   return (
     <article className="w-[90vw] xl:w-[80vw] 2xl:w-[60vw] mb-[50px] customMargin flex flex-col  items-start ">
-      <div className="h-[100%] w-[100%] p-[20px] flex items-center customBoxShadow rounded">
+      <div className="h-[100%] w-[100%] p-[10px] flex items-center customBoxShadow rounded">
         <input
           className="custom-file-input"
           type="file"

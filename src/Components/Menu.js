@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -34,11 +34,13 @@ const Menu = () => {
       className={`h-[80px] lg:h-[100px] max-w-[100vw] md:h-[90px] lg:h-[10vh] relative lg:static lg:flex justify-between bg-`}
     >
       <div className="h-[100%] top-[50%] translate-y-[-50%] lg:translate-y-0 left-0 absolute lg:static lg:ml-[20px] flex items-center justify-center z-30">
-        <img
-          src={process.env.PUBLIC_URL + "/images/logo.png"}
-          alt="autojedynka logo"
-          className="h-[70px] lg:h-[90px]"
-        />
+        <Link to="/strona-główna">
+          <img
+            src={process.env.PUBLIC_URL + "/images/logo.png"}
+            alt="autojedynka logo"
+            className="h-[70px] lg:h-[90px]"
+          />
+        </Link>
       </div>
       <ul
         className={`h-[100vh] lg:h-[100%] w-[100%] fixed left-[100%] lg:overflow-x-hidden lg:mr-[20px] lg:static flex flex-col lg:flex-row justify-center lg:justify-end items-center gap-[20px] transition-all duration-500 ease-out bg-orange lg:bg-white z-20 ${
