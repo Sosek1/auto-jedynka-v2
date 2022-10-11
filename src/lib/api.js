@@ -12,7 +12,6 @@ export const getCoursePrices = async () => {
   }
 
   const loadedPrices = { id: "-ND3Yh3EinKf39M2WlYu", ...data };
-
   return loadedPrices;
 };
 

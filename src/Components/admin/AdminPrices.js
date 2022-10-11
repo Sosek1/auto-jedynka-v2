@@ -1,10 +1,22 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import useHttp from "../../custom-hooks/use-http";
 import { getCoursePrices, updatePrices } from "../../lib/api";
 
 import LoadingSpinner from "../../UI/LoadingSpinner";
 
 const AdminPrices = (props) => {
+  const [prices, setPrices] = useState({
+    weekendCourse: 0,
+    expressCourse: 0,
+  });
+
+  useEffect(() => {
+    (async () => {
+      const pricesObj = await getCoursePrices();
+      setPrices({ ...pricesObj });
+    })();
+  }, []);
+
   const {
     sendRequest: sendRequestForFetch,
     data: loadedPrices,
@@ -31,8 +43,10 @@ const AdminPrices = (props) => {
       expressCourse: enteredExpressCoursePrice,
     });
 
-    weekendCoursePrice.current.value = "";
-    expressCoursePrice.current.value = "";
+    setPrices({
+      weekendCourse: enteredWeekendCoursePrice,
+      expressCourse: enteredExpressCoursePrice,
+    });
   };
 
   return (
@@ -43,7 +57,7 @@ const AdminPrices = (props) => {
       <div className="h-[100%] w-[100%] p-[20px] flex flex-col lg:flex-row lg:items-center gap-5 customBoxShadow rounded">
         <div className="lg:mr-[20px] flex items-center justify-between  lg:text-center">
           <label className="text-[16px] md:text-[18px]">{`Kurs weekendowy: ${
-            status === "completed" ? loadedPrices.weekendCourse : ""
+            status === "completed" ? prices.weekendCourse : ""
           }`}</label>
           <div>{status === (null || "pending") && <LoadingSpinner />}</div>
         </div>
@@ -54,7 +68,7 @@ const AdminPrices = (props) => {
         ></input>
         <div className="lg:mr-[20px] flex items-center justify-between  lg:text-center">
           <label className="text-[16px] md:text-[18px]">{`Kurs weekendowy: ${
-            status === "completed" ? loadedPrices.expressCourse : ""
+            status === "completed" ? prices.expressCourse : ""
           }`}</label>
           <div>{status === (null || "pending") && <LoadingSpinner />}</div>
         </div>
