@@ -5,9 +5,16 @@ import { getCoursePrices, updatePrices } from "../../lib/api";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 
 const AdminPrices = (props) => {
+  const { sendRequest: sendRequestForFetch, status } = useHttp(getCoursePrices);
+
   const [prices, setPrices] = useState({
     weekendCourse: 0,
     expressCourse: 0,
+  });
+
+  const [showError, setShowError] = useState({
+    error: false,
+    message: "",
   });
 
   useEffect(() => {
@@ -15,22 +22,11 @@ const AdminPrices = (props) => {
       const pricesObj = await getCoursePrices();
       setPrices({ ...pricesObj });
     })();
-  }, []);
-
-  const {
-    sendRequest: sendRequestForFetch,
-    data: loadedPrices,
-    status,
-    error,
-  } = useHttp(getCoursePrices);
-  const { sendRequest: sendRequestForUpdate } = useHttp(updatePrices);
+    sendRequestForFetch();
+  }, [sendRequestForFetch]);
 
   const weekendCoursePrice = useRef();
   const expressCoursePrice = useRef();
-
-  useEffect(() => {
-    sendRequestForFetch();
-  }, [sendRequestForFetch, sendRequestForUpdate]);
 
   const submitFormHandler = (event) => {
     event.preventDefault();
@@ -38,7 +34,16 @@ const AdminPrices = (props) => {
     const enteredWeekendCoursePrice = weekendCoursePrice.current.value;
     const enteredExpressCoursePrice = expressCoursePrice.current.value;
 
-    sendRequestForUpdate({
+    if (enteredWeekendCoursePrice === "" && enteredExpressCoursePrice === "") {
+      setShowError({ error: true, message: "Nie podano cen" });
+      return;
+    }
+    if (enteredWeekendCoursePrice === "" || enteredExpressCoursePrice === "") {
+      setShowError({ error: true, message: "Nie podano jednej z cen" });
+      return;
+    }
+
+    updatePrices({
       weekendCourse: enteredWeekendCoursePrice,
       expressCourse: enteredExpressCoursePrice,
     });
@@ -47,16 +52,23 @@ const AdminPrices = (props) => {
       weekendCourse: enteredWeekendCoursePrice,
       expressCourse: enteredExpressCoursePrice,
     });
+
+    props.noti();
+    props.text();
+
+    weekendCoursePrice.current.value = "";
+    expressCoursePrice.current.value = "";
+    setShowError(false);
   };
 
   return (
     <form
       onSubmit={submitFormHandler}
-      className="w-[90vw] xl:w-[80vw] 2xl:w-[70vw] customMargin flex flex-col "
+      className="w-[90vw] xl:w-[80vw] 2xl:w-[70vw] customMargin flex flex-col"
     >
       <div className="h-[100%] w-[100%] p-[20px] flex flex-col lg:flex-row lg:items-center gap-5 customBoxShadow rounded">
         <div className="lg:mr-[20px] flex items-center justify-between  lg:text-center">
-          <label className="text-[16px] md:text-[18px]">{`Kurs weekendowy: ${
+          <label className="text-[16px] md:text-[18px]">{`Kurs ekspresowy: ${
             status === "completed" ? prices.weekendCourse : ""
           }`}</label>
           <div>{status === (null || "pending") && <LoadingSpinner />}</div>
@@ -78,11 +90,12 @@ const AdminPrices = (props) => {
           placeholder="Zmień cenę kursu"
         ></input>
       </div>
+      {showError.error && (
+        <p className="text-[16px] mt-[20px] text-orange font-medium ">
+          {showError.message}
+        </p>
+      )}
       <button
-        onClick={() => {
-          props.noti();
-          props.text();
-        }}
         type="submit"
         className="w-[150px] h-[40px] mt-[20px] text-[16px] md:text-[18px] text-white bg-orange rounded"
       >

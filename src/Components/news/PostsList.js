@@ -17,14 +17,18 @@ const PostsList = () => {
     <ul className="w-[80vw] md:w-[60vw] min-h-[30vh] lg:w-[50vw] customMargin mb-[50px] flex flex-col items-center gap-10">
       {status === (null || "pending") && <LoadingSpinner />}
       {status === "completed" &&
-        data.map((post) => (
-          <Post
-            key={post.id}
-            date={post.date}
-            title={post.title}
-            text={post.text}
-          />
-        ))}
+        data.map((post) => {
+          return post.active ? (
+            <Post
+              key={post.id}
+              date={post.date}
+              title={post.title}
+              text={post.text}
+            />
+          ) : (
+            <div key={Math.floor(Math.random() * 10000)}></div>
+          );
+        })}
     </ul>
   );
 };

@@ -33,7 +33,7 @@ export const getPosts = async () => {
 
     loadedPosts.push(postObj);
   }
-
+  console.log("zfetchowano");
   return loadedPosts;
 };
 
@@ -58,6 +58,26 @@ export const updatePrices = async (priceData) => {
   return null;
 };
 
+export const updatePosts = async (postsData) => {
+  const id = postsData.id;
+
+  const response = await fetch(`${FIREBASE_ADRESS}/posts/${id}.json`, {
+    method: "PATCH",
+    body: JSON.stringify(postsData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Could not update post");
+  }
+
+  return null;
+};
+
 export const addPosts = async (postsData) => {
   const response = await fetch(`${FIREBASE_ADRESS}/posts.json`, {
     method: "POST",
@@ -70,7 +90,7 @@ export const addPosts = async (postsData) => {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || "Could not update prices");
+    throw new Error(data.message || "Could not add post");
   }
 
   return null;
