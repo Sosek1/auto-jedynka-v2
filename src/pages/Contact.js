@@ -1,16 +1,13 @@
 import useNotification from "../custom-hooks/use-notification";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
 import Notification from "../UI/Notification";
 import Footer from "../Components/Footer";
-
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
-
 import { MapContainer } from "react-leaflet/MapContainer";
 import { TileLayer } from "react-leaflet/TileLayer";
 import { Marker } from "react-leaflet/Marker";
@@ -21,7 +18,6 @@ const Contact = (props) => {
   const { notification: copyNotification, onNoti: onCopy } = useNotification();
 
   delete L.Icon.Default.prototype._getIconUrl;
-
   L.Icon.Default.mergeOptions({
     iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
     iconUrl: require("leaflet/dist/images/marker-icon.png"),
@@ -38,7 +34,6 @@ const Contact = (props) => {
       <h2 className="section-title">
         <span className="text-orange">Skontaktuj</span> się z nami
       </h2>
-
       <section className=" w-[90vw] lg:w-[60vw] customMargin flex flex-col ">
         <h3 className="mb-[30px]  text-[25px] md:text-[30px] text-orange">
           Dane kontaktowe

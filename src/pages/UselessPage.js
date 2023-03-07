@@ -1,5 +1,4 @@
 import useNotification from "../custom-hooks/use-notification";
-
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
 import Notification from "../UI/Notification";
@@ -7,6 +6,7 @@ import Footer from "../Components/Footer";
 
 const UselessPage = () => {
   const { notification: copyNotification, onNoti: onCopy } = useNotification();
+
   return (
     <>
       <header>

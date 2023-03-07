@@ -4,7 +4,6 @@ import { scaleVariant } from "../UI/animationVariants";
 import { slideLeftVariant } from "../UI/animationVariants";
 import { slideRightVariant } from "../UI/animationVariants";
 import { slideBottomVariant } from "../UI/animationVariants";
-
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
 import Notification from "../UI/Notification";

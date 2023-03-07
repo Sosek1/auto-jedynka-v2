@@ -1,14 +1,13 @@
 import useNotification from "../custom-hooks/use-notification";
-
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
 import Notification from "../UI/Notification";
-import Post from "../Components/news/Post";
 import Footer from "../Components/Footer";
 import PostsList from "../Components/news/PostsList";
 
 const News = () => {
   const { notification: copyNotification, onNoti: onCopy } = useNotification();
+
   return (
     <>
       <header>

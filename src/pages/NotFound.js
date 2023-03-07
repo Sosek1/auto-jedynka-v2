@@ -8,6 +8,7 @@ import Footer from "../Components/Footer";
 
 const NotFound = () => {
   const { copyNotification, onCopy } = useNotification();
+
   return (
     <>
       <header>

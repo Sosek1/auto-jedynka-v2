@@ -1,6 +1,6 @@
 const Banner = () => {
   return (
-    <section className="min-h-[calc(100vh-80px)] md:h-[70vh] relative bg-[url('https://firebasestorage.googleapis.com/v0/b/autojedynka-73a74.appspot.com/o/banner.jpg?alt=media&token=d718417f-574e-43a3-aa24-73c9a42d76ce')] bg-no-repeat bg-cover bg-center">
+    <section className="min-h-[calc(100vh-80px)] md:h-[70vh] relative bg-[url('https://firebasestorage.googleapis.com/v0/b/autojedynka-8fe6f.appspot.com/o/banner.jpg?alt=media&token=71d9c4dc-eef1-4f9b-a094-5d033b77e0bb')] bg-no-repeat bg-cover bg-center">
       <div className="min-h-[calc(100vh-80px)] md:h-[70vh] flex flex-col items-center justify-start bg-black opacity-60">
         <h1 className="mt-[30px] text-center text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] 2xl:text-[70px] font-medium  text-white z-10">
           OSK Auto Jedynka

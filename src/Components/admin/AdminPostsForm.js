@@ -1,6 +1,6 @@
 import { useRef, useState, useContext } from "react";
 import { addPosts } from "../../lib/api";
-import { PostsContext } from "../../store/posts-context";
+import { AdminContext } from "../../store/admin-context";
 
 const AdminPosts = (props) => {
   const [showError, setShowError] = useState({
@@ -11,7 +11,7 @@ const AdminPosts = (props) => {
   const titleRef = useRef();
   const textRef = useRef();
 
-  const postsCtx = useContext(PostsContext);
+  const adminCtx = useContext(AdminContext);
 
   let today = new Date();
   let day = String(today.getDate()).padStart(2, "0");
@@ -46,7 +46,7 @@ const AdminPosts = (props) => {
       date: todaysDate,
     });
 
-    postsCtx.onAddPost(true);
+    adminCtx.onAddPost(true);
 
     titleRef.current.value = "";
     textRef.current.value = "";

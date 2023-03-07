@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import useHttp from "../custom-hooks/use-http";
 import { getCoursePrices } from "../lib/api";
-
 import AnimationComponent from "../UI/AnimationComponent";
 
 const OfferCard = (props) => {

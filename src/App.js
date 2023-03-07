@@ -9,8 +9,6 @@ import Contact from "./pages/Contact";
 import News from "./pages/News";
 import AdminPanel from "./pages/AdminPanel";
 import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import { LoginContextProvider } from "./store/login-context";
 
 function App() {
   return (
@@ -40,14 +38,9 @@ function App() {
         <Route path="/kontakt">
           <Contact />
         </Route>
-        <LoginContextProvider>
-          <Route path="/admin-panel">
-            <AdminPanel />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-        </LoginContextProvider>
+        <Route path="/admin-panel">
+          <AdminPanel />
+        </Route>
         <Route path="*">
           <NotFound />
         </Route>

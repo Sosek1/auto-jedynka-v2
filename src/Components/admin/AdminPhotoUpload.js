@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { storage } from "../../firebase";
 import { ref, uploadBytes } from "firebase/storage";
-import { PhotoContext } from "../../store/uploadPhoto-context";
+import { AdminContext } from "../../store/admin-context";
 
 const AdminPhotoUpload = (props) => {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -10,7 +10,7 @@ const AdminPhotoUpload = (props) => {
     message: "",
   });
 
-  const photoCtx = useContext(PhotoContext);
+  const adminCtx = useContext(AdminContext);
 
   const uploadImageHandler = (event) => {
     setUploadedImage(event.target.files[0]);
@@ -26,7 +26,7 @@ const AdminPhotoUpload = (props) => {
         setUploadedImage([]);
       })
       .then(() => {
-        photoCtx.onAddPhoto(true);
+        adminCtx.onAddPhoto(true);
         props.noti();
         props.text("Dodano zdjęcie");
       });

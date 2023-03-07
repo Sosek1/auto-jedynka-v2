@@ -3,7 +3,7 @@ import useHttp from "../../custom-hooks/use-http";
 import { getPosts, updatePosts } from "../../lib/api";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { PostsContext } from "../../store/posts-context";
+import { AdminContext } from "../../store/admin-context";
 
 const AdminMenagePosts = (props) => {
   const {
@@ -13,11 +13,11 @@ const AdminMenagePosts = (props) => {
   } = useHttp(getPosts);
   const { sendRequest: sendRequestForUpdate } = useHttp(updatePosts);
 
-  const postsCtx = useContext(PostsContext);
+  const adminCtx = useContext(AdminContext);
 
   useEffect(() => {
     sendRequestForFetch();
-  }, [sendRequestForFetch, postsCtx.onAddPost, sendRequestForUpdate]);
+  }, [sendRequestForFetch, adminCtx.onAddPost, sendRequestForUpdate]);
 
   const deletePostHandler = (id) => {
     sendRequestForUpdate({

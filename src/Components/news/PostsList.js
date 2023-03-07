@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import useHttp from "../../custom-hooks/use-http";
 import { getPosts } from "../../lib/api";
-
 import Post from "./Post";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 

@@ -1,6 +1,5 @@
 import AnimationComponent from "../../UI/AnimationComponent";
 import { scaleVariant } from "../../UI/animationVariants";
-
 import SchoolIcon from "@mui/icons-material/School";
 import SecurityIcon from "@mui/icons-material/Security";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";

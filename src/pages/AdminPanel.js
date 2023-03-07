@@ -7,8 +7,8 @@ import AdminPostsForm from "../Components/admin/AdminPostsForm";
 import AdminPrices from "../Components/admin/AdminPrices";
 import AdminMenagePhotos from "../Components/admin/AdminMenagePhotos";
 import AdminMenagePosts from "../Components/admin/AdminMenagePosts";
-import { PostsContextProvider } from "../store/posts-context";
-import { PhotoContextProvider } from "../store/uploadPhoto-context";
+import { AdminContextProvider } from "../store/admin-context";
+
 const AdminPanel = () => {
   const [notificationState, setNotificationState] = useState("");
   const { notification, onNoti } = useNotification();
@@ -24,11 +24,10 @@ const AdminPanel = () => {
         noti={onNoti}
         text={() => setNotificationState("Zmieniono ceny")}
       />
-      <PostsContextProvider>
-        <h2 className="section-title">
-          Dodawanie <span className="text-orange"> aktualności</span>
-        </h2>
-
+      <h2 className="section-title">
+        Dodawanie <span className="text-orange"> aktualności</span>
+      </h2>
+      <AdminContextProvider>
         <AdminPostsForm
           noti={onNoti}
           text={() => setNotificationState("Dodano aktualność")}
@@ -38,13 +37,11 @@ const AdminPanel = () => {
         </h2>
         <AdminMenagePosts
           noti={onNoti}
-          text={() => setNotificationState("Usunięto aktualność, odśwież")}
+          text={() => setNotificationState("Usunięto aktualność")}
         />
-      </PostsContextProvider>
-      <h2 className="section-title">
-        Dodawanie <span className="text-orange">zdjęć</span>
-      </h2>
-      <PhotoContextProvider>
+        <h2 className="section-title">
+          Dodawanie <span className="text-orange">zdjęć</span>
+        </h2>
         <AdminPhotoUpload
           noti={onNoti}
           text={(notificationText) => setNotificationState(notificationText)}
@@ -54,9 +51,9 @@ const AdminPanel = () => {
         </h2>
         <AdminMenagePhotos
           noti={onNoti}
-          text={() => setNotificationState("Usunięto zdjęcie, odśwież")}
+          text={() => setNotificationState("Usunięto zdjęcie")}
         />
-      </PhotoContextProvider>
+      </AdminContextProvider>
     </>
   );
 };

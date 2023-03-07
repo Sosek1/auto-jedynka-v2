@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import AnimationComponent from "../../UI/AnimationComponent";
 import { scaleVariant } from "../../UI/animationVariants";
 

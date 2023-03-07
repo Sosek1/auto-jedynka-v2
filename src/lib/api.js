@@ -1,5 +1,5 @@
 const FIREBASE_ADRESS =
-  "https://autojedynka-73a74-default-rtdb.europe-west1.firebasedatabase.app/";
+  "https://autojedynka-projekt-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
 export const getCoursePrices = async () => {
   const response = await fetch(
@@ -16,7 +16,7 @@ export const getCoursePrices = async () => {
 };
 
 export const getPosts = async () => {
-  const response = await fetch(`${FIREBASE_ADRESS}/posts.json`);
+  const response = await fetch(`${FIREBASE_ADRESS}/Posts.json`);
   const data = await response.json();
 
   if (!response.ok) {
@@ -33,7 +33,6 @@ export const getPosts = async () => {
 
     loadedPosts.push(postObj);
   }
-  console.log("zfetchowano");
   return loadedPosts;
 };
 
@@ -61,7 +60,7 @@ export const updatePrices = async (priceData) => {
 export const updatePosts = async (postsData) => {
   const id = postsData.id;
 
-  const response = await fetch(`${FIREBASE_ADRESS}/posts/${id}.json`, {
+  const response = await fetch(`${FIREBASE_ADRESS}/Posts/${id}.json`, {
     method: "PATCH",
     body: JSON.stringify(postsData),
     headers: {
@@ -79,7 +78,7 @@ export const updatePosts = async (postsData) => {
 };
 
 export const addPosts = async (postsData) => {
-  const response = await fetch(`${FIREBASE_ADRESS}/posts.json`, {
+  const response = await fetch(`${FIREBASE_ADRESS}/Posts.json`, {
     method: "POST",
     body: JSON.stringify(postsData),
     headers: {

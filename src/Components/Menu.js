@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -30,9 +29,7 @@ const Menu = () => {
   ];
 
   return (
-    <nav
-      className={`h-[80px] lg:h-[100px] max-w-[100vw] md:h-[90px] lg:h-[10vh] relative lg:static lg:flex justify-between bg-`}
-    >
+    <nav className="h-[80px] lg:h-[100px] w-[100%] md:h-[90px] lg:h-[10vh] relative lg:static lg:flex justify-between overflow-hidden">
       <div className="h-[100%] top-[50%] translate-y-[-50%] lg:translate-y-0 left-0 absolute lg:static lg:ml-[20px] flex items-center justify-center z-30">
         <Link to="/strona-główna">
           <img
@@ -78,6 +75,3 @@ const Menu = () => {
 };
 
 export default Menu;
-
-//Check if hover doesnt look bad on mobile
-//Check if menu icon isnt to small on tablets(md)

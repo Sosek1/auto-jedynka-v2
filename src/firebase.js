@@ -6,14 +6,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCYYnZp2ewKMevuKs5eeS4G5M3AV3eZQL8",
-  authDomain: "autojedynka-73a74.firebaseapp.com",
-  databaseURL:
-    "https://autojedynka-73a74-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "autojedynka-73a74",
-  storageBucket: "autojedynka-73a74.appspot.com",
-  messagingSenderId: "679297722751",
-  appId: "1:679297722751:web:9f655d6efc1c2281ef124a",
+  apiKey: "AIzaSyDn9x_l75vxei6I_n8fqUj6u1c8Sgy6wRM",
+  authDomain: "autojedynka-projekt.firebaseapp.com",
+  projectId: "autojedynka-projekt",
+  storageBucket: "autojedynka-projekt.appspot.com",
+  messagingSenderId: "157505757574",
+  appId: "1:157505757574:web:59bd73fde3650202ae4c07",
 };
 
 // Initialize Firebase
