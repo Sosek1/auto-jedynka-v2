@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 const Menu = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -48,7 +49,7 @@ const Menu = () => {
           <li key={Math.floor(Math.random() * 10000)}>
             <NavLink
               to={url}
-              className="p-[5px] text-[20px] text-white lg:text-[16px] lg:text-gray hover:text-orange transition ease-in-out duration-300"
+              className="p-[5px] text-[20px] text-center text-white lg:text-[16px] lg:text-gray hover:text-orange transition ease-in-out duration-300"
               activeClassName="border-b-[3px] border-white lg:border-orange"
             >
               {title}
@@ -56,6 +57,7 @@ const Menu = () => {
           </li>
         ))}
       </ul>
+
       <div className="h-[100%] absolute right-0 mr-[20px] flex items-center justify-center lg:hidden z-30">
         {!showMobileMenu && (
           <MenuIcon

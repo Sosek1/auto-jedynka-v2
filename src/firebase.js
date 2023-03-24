@@ -1,19 +1,17 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import firebase from "firebase/compat/app";
+import "firebase/compat/app";
 import { getStorage } from "firebase/storage";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+require("firebase/compat/auth");
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDn9x_l75vxei6I_n8fqUj6u1c8Sgy6wRM",
-  authDomain: "autojedynka-projekt.firebaseapp.com",
-  projectId: "autojedynka-projekt",
-  storageBucket: "autojedynka-projekt.appspot.com",
-  messagingSenderId: "157505757574",
-  appId: "1:157505757574:web:59bd73fde3650202ae4c07",
-};
+const app = firebase.initializeApp({
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+});
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const auth = app.auth();
 export const storage = getStorage(app);
+export default app;

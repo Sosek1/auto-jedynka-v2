@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 const TopBar = (props) => {
   return (
@@ -24,10 +26,17 @@ const TopBar = (props) => {
         <CopyToClipboard
           text="autojedynka@gmail.com"
           onCopy={props.copy}
-          className="ml-[10px] text-white text-[15px] font-light cursor-copy"
+          className="ml-[10px] mr-[10px] text-white text-[15px] font-light cursor-copy"
         >
           <span>autojedynka@gmail.com</span>
         </CopyToClipboard>
+        <AdminPanelSettingsIcon style={{ color: "#ffffff" }} />
+        <Link
+          to="/login"
+          className="ml-[10px] text-white text-[15px] font-light cursor-pointer"
+        >
+          Panel administracyjny
+        </Link>
       </div>
     </section>
   );
