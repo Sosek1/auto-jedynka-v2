@@ -32,6 +32,6 @@ We are proud to have created a website that meets the needs of the driving schoo
 - Material UI Icons
 - Firebase realtime database, storage, authentication
 
-## The application was created using Figma
+## The application was designed using Figma
 
 - https://www.figma.com/file/Ri8n5u3xxifjsaGxcdEmsG/Untitled?node-id=0%3A1
