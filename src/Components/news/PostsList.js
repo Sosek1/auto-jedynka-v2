@@ -12,20 +12,22 @@ const PostsList = () => {
     console.log(data, status, error);
   }, [sendRequest]);
 
+  console.log(data);
+
   return (
-    <ul className="w-[80vw] md:w-[60vw] min-h-[30vh] lg:w-[50vw] customMargin mb-[50px] flex flex-col items-center gap-10">
+    <ul className="w-[80vw] md:w-[60vw] min-h-[30vh] lg:w-[50vw] customMargin mb-[50px] flex gap-10 flex-col">
       {status === (null || "pending") && <LoadingSpinner />}
       {status === "completed" &&
         data.map((post) => {
-          return post.active ? (
-            <Post
-              key={post.id}
-              date={post.date}
-              title={post.title}
-              text={post.text}
-            />
-          ) : (
-            <div key={Math.floor(Math.random() * 10000)}></div>
+          return (
+            post.active && (
+              <Post
+                key={post.id}
+                date={post.date}
+                title={post.title}
+                text={post.text}
+              />
+            )
           );
         })}
     </ul>
