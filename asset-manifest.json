@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/auto-jedynka-v2/static/css/main.d9937e22.css",
-    "main.js": "/auto-jedynka-v2/static/js/main.dbaa3bd8.js",
+    "main.js": "/auto-jedynka-v2/static/js/main.736fb671.js",
     "index.html": "/auto-jedynka-v2/index.html",
     "main.d9937e22.css.map": "/auto-jedynka-v2/static/css/main.d9937e22.css.map",
-    "main.dbaa3bd8.js.map": "/auto-jedynka-v2/static/js/main.dbaa3bd8.js.map"
+    "main.736fb671.js.map": "/auto-jedynka-v2/static/js/main.736fb671.js.map"
   },
   "entrypoints": [
     "static/css/main.d9937e22.css",
-    "static/js/main.dbaa3bd8.js"
+    "static/js/main.736fb671.js"
   ]
 }
