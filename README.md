@@ -1,6 +1,6 @@
 # Driving School's website written in React
 
-# https://auto-jedynka.pl/
+# https://sosek1.github.io/auto-jedynka-v2/
 
 ## Description
 
@@ -20,7 +20,10 @@ We are proud to have created a website that meets the needs of the driving schoo
 - Uploading photos
 - Updating courses' prices
 - Editing and deleting post
-- Deleting photos
+- Deleting photos\
+
+### Login to Admin Panel: test2@gmail.com
+### Password to Admin Panel: 123456
 
 ## Used technologies and tools
 
