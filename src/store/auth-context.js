@@ -15,8 +15,6 @@ export const AuthContextProvider = (props) => {
     return auth.signOut();
   };
 
-  console.log(currentUser);
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);

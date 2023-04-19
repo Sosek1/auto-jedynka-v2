@@ -27,10 +27,11 @@ const Menu = () => {
     ["Dekalog Ekokierowcy", "/dekalog-ekokierowcy"],
     ["Galeria", "/galeria"],
     ["Kontakt", "/kontakt"],
+    ["Admin panel", "/login"],
   ];
 
   return (
-    <nav className="h-[80px] lg:h-[100px] w-[100%] md:h-[90px] lg:h-[10vh] relative lg:static lg:flex justify-between overflow-hidden">
+    <nav className="h-[80px] w-[100%] md:h-[90px] lg:h-[10vh] relative lg:static lg:flex justify-between overflow-hidden">
       <div className="h-[100%] top-[50%] translate-y-[-50%] lg:translate-y-0 left-0 absolute lg:static lg:ml-[20px] flex items-center justify-center z-30">
         <Link to="/strona-główna">
           <img

@@ -33,6 +33,7 @@ export const getPosts = async () => {
 
     loadedPosts.push(postObj);
   }
+  console.log("funkcja get");
   return loadedPosts;
 };
 
@@ -73,6 +74,8 @@ export const updatePosts = async (postsData) => {
   if (!response.ok) {
     throw new Error(data.message || "Could not update post");
   }
+
+  console.log("funckja update");
 
   return null;
 };
