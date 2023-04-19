@@ -3,7 +3,6 @@ import useNotification from "../custom-hooks/use-notification";
 import TopBar from "../Components/TopBar";
 import Menu from "../Components/Menu";
 import Notification from "../UI/Notification";
-import Post from "../Components/news/Post";
 import Footer from "../Components/Footer";
 
 const NotFound = () => {

@@ -35,7 +35,7 @@ const Gallery = () => {
       </header>
       <Notification onShow={copyNotification} text={"Skopiowano do schowka"} />
       <h2 className="section-title text-orange">Galeria</h2>
-      <section className="min-h-[30vh] w-[80vw] md:w-[60vw] lg:w-[70vw] mb-[50px] customMargin md:mb-[50px] grid grid-rows-4 grid-cols-1 lg:grid-rows-2 lg:grid-cols-2 gap-[10px]">
+      <section className="h-auto w-[80vw] md:w-[60vw] lg:w-[70vw] mb-[50px] customMargin md:mb-[50px] grid grid-rows-4 grid-cols-1 lg:grid-rows-2 lg:grid-cols-2 gap-[10px]">
         {imagesList.length !== 0 ? (
           imagesList.map((url) => (
             <AnimationComponent
@@ -44,7 +44,7 @@ const Gallery = () => {
             >
               <img
                 src={url}
-                alt={"car image"}
+                alt={"car"}
                 className="w-[100%] h-[250px] md:h-[400px] xl:h-[450px] object-fill"
               />
             </AnimationComponent>

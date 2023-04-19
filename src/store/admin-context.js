@@ -16,7 +16,12 @@ export const AdminContextProvider = (props) => {
 
   return (
     <AdminContext.Provider
-      value={{ onAddPost: addPostHandler, onAddPhoto: addPhotoHandler }}
+      value={{
+        addPost,
+        addPhoto,
+        onAddPost: addPostHandler,
+        onAddPhoto: addPhotoHandler,
+      }}
     >
       {props.children}
     </AdminContext.Provider>

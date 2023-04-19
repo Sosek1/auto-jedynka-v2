@@ -21,7 +21,7 @@ const AdminMenu = () => {
   };
 
   return (
-    <nav className="h-[80px] lg:h-[100px] md:h-[90px] lg:h-[10vh] flex justify-between bg-orange">
+    <nav className="h-[80px] md:h-[90px] lg:h-[10vh] flex justify-between bg-orange">
       <div className="h-[100%] ml-[20px] flex items-center justify-center">
         <Link to="/strona-główna">
           <img

@@ -30,8 +30,8 @@ const AdminMenagePosts = (props) => {
 
   return (
     <ul className="w-[90vw] xl:w-[80vw] 2xl:w-[70vw] pb-[20px] px-[20px] customMargin flex flex-col customBoxShadow rounded">
-      {status == (null || "pending") && <LoadingSpinner />}
-      {status == "completed" &&
+      {status === (null || "pending") && <LoadingSpinner />}
+      {status === "completed" &&
         loadedPosts.map((post) => {
           return post.active ? (
             <li
