@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/auto-jedynka-v2/strona-g%C5%82%C3%B3wna/static/css/main.69f6a5dc.css",
-    "main.js": "/auto-jedynka-v2/strona-g%C5%82%C3%B3wna/static/js/main.1ec0ebfb.js",
-    "index.html": "/auto-jedynka-v2/strona-g%C5%82%C3%B3wna/index.html",
-    "main.69f6a5dc.css.map": "/auto-jedynka-v2/strona-g%C5%82%C3%B3wna/static/css/main.69f6a5dc.css.map",
-    "main.1ec0ebfb.js.map": "/auto-jedynka-v2/strona-g%C5%82%C3%B3wna/static/js/main.1ec0ebfb.js.map"
+    "main.css": "/auto-jedynka-v2/static/css/main.d9937e22.css",
+    "main.js": "/auto-jedynka-v2/static/js/main.dbaa3bd8.js",
+    "index.html": "/auto-jedynka-v2/index.html",
+    "main.d9937e22.css.map": "/auto-jedynka-v2/static/css/main.d9937e22.css.map",
+    "main.dbaa3bd8.js.map": "/auto-jedynka-v2/static/js/main.dbaa3bd8.js.map"
   },
   "entrypoints": [
-    "static/css/main.69f6a5dc.css",
-    "static/js/main.1ec0ebfb.js"
+    "static/css/main.d9937e22.css",
+    "static/js/main.dbaa3bd8.js"
   ]
 }
